@@ -10,6 +10,11 @@ def index(request):
     return render(request, 'tariff/tariff-list.html', locals())
 
 
+def tariff_list(request):
+    tariffs = Tariff.objects.all()
+    return render(request, 'tariff/tariff-list.html', locals())
+
+
 def tariff_detail(request, pk):
     tariff = Tariff.objects.get(id=pk)
     if request.method == "POST":
